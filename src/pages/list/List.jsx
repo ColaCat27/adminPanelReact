@@ -1,12 +1,18 @@
 import React from 'react';
+import './list.scss';
+import Sidebar from '../../components/sidebar/Sidebar';
+import Navbar from '../../components/navbar/Navbar';
+import Datatable from '../../components/datatable/Datatable';
 
 const List = () => {
     return (
-        <ul className='list'>
-            <li>item-1</li>
-            <li>item-2</li>
-            <li>item-3</li>
-        </ul>
+        <div className='list'>
+            <Sidebar/>
+            <div className="listContainer">
+                <Navbar/>
+                <Datatable/>
+            </div>
+        </div>
     )
 }
 
