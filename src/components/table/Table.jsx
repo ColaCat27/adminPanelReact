@@ -22,18 +22,28 @@ const rows = [
     {
         id: 2,
         product: "Playstation 5",
-        img: "",
+        img: "https://m.media-amazon.com/images/I/71PMC4DWWFL._AC_SX522_.jpg",
         customer: "Ann Smith",
         date: "1 March",
         amount: 500,
-        method: "Cash on Delivery",
-        status: "Approved"
+        method: "Online Payment",
+        status: "Pending"
+    },
+    {
+        id: 3,
+        product: "Razer Kraken PRO",
+        img: "https://m.media-amazon.com/images/I/61dwuOuWXmL._AC_SX450_.jpg",
+        customer: "Ann Smith",
+        date: "1 March",
+        amount: 200,
+        method: "Online",
+        status: "Declined"
     }
 ];
 
 const List = () => {
     return(
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} className="table">
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
@@ -53,12 +63,19 @@ const List = () => {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell className="tableCell">{row.id}</TableCell>
-                                <TableCell className="tableCell">{row.product}</TableCell>
+                                <TableCell className="tableCell">
+                                    <div className="cellWrapper">
+                                        <img src={row.img} alt="" className="image"/>
+                                        {row.product}
+                                    </div>
+                                </TableCell>
                                 <TableCell className="tableCell">{row.customer}</TableCell>
                                 <TableCell className="tableCell">{row.date}</TableCell>
-                                <TableCell className="tableCell">{row.amount}</TableCell>
+                                <TableCell className="tableCell">$ {row.amount}</TableCell>
                                 <TableCell className="tableCell">{row.method}</TableCell>
-                                <TableCell className="tableCell">{row.status}</TableCell>
+                                <TableCell className="tableCell">
+                                    <span className={`status ${row.status}`}>{row.status}</span>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
