@@ -1,45 +1,68 @@
-export const productColumn = [
-    {
-        field: 'title',
-        header: 'Title',
-        width: 300,
-    },
-    {
-        field: 'description',
-        header: 'Description',
-        width: 300,
-    },
-];
-
-export const userColumn = [
+export const userColumns = [
+    { field: '_id', headerName: 'ID', width: 70 },
     {
         field: 'user',
         headerName: 'User',
         width: 230,
         renderCell: (params) => {
-            return <div className="cellWithImg">{params.row.username}</div>;
+            return (
+                <div className="cellWithImg">
+                    <img
+                        className="cellImg"
+                        src={
+                            params.row.img ||
+                            'https://i.ibb.co/MBtjqXQ/no-avatar.gif'
+                        }
+                        alt="avatar"
+                    />
+                    {params.row.username}
+                </div>
+            );
         },
     },
     {
         field: 'email',
         headerName: 'Email',
-        width: 150,
+        width: 230,
     },
+
     {
-        field: 'age',
-        headerName: 'Age',
+        field: 'country',
+        headerName: 'Country',
         width: 100,
     },
     {
-        field: 'status',
-        headerName: 'Status',
-        width: 160,
-        renderCell: (params) => {
-            return (
-                <div className={`cellWithStatus ${params.row.status}`}>
-                    {params.row.status}
-                </div>
-            );
-        },
+        field: 'city',
+        headerName: 'City',
+        width: 100,
+    },
+    {
+        field: 'phone',
+        headerName: 'Phone',
+        width: 100,
+    },
+];
+
+export const productColumns = [
+    { field: '_id', headerName: 'ID', width: 250 },
+    {
+        field: 'name',
+        headerName: 'Name',
+        width: 150,
+    },
+    {
+        field: 'type',
+        headerName: 'Type',
+        width: 100,
+    },
+    {
+        field: 'title',
+        headerName: 'Title',
+        width: 230,
+    },
+    {
+        field: 'city',
+        headerName: 'City',
+        width: 100,
     },
 ];

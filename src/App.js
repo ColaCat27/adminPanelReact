@@ -7,7 +7,7 @@ import New from './pages/new/New';
 import './style/dark.scss';
 import { useContext } from 'react';
 import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
-
+import { userColumns, productColumns } from './datatablesource';
 import { productInputs, userInputs } from './formSource';
 import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/authContext';
@@ -28,73 +28,74 @@ function App() {
         <div className={darkMode ? 'app dark' : 'app'}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="login" element={<Login />}></Route>
-                    <Route
-                        path="/"
-                        element={
-                            <ProtectedRoute>
-                                <Home />
-                            </ProtectedRoute>
-                        }
-                    ></Route>
-
-                    <Route path="users">
+                    <Route path="/">
+                        <Route path="login" element={<Login />} />
                         <Route
                             index
                             element={
                                 <ProtectedRoute>
-                                    <List />
+                                    <Home />
                                 </ProtectedRoute>
                             }
-                        ></Route>
-                        <Route
-                            path=":userId"
-                            element={
-                                <ProtectedRoute>
-                                    <Single />
-                                </ProtectedRoute>
-                            }
-                        ></Route>
-                        <Route
-                            path="new"
-                            element={
-                                <ProtectedRoute>
-                                    <New
-                                        inputs={userInputs}
-                                        title="Add new user"
-                                    />
-                                </ProtectedRoute>
-                            }
-                        ></Route>
-                    </Route>
-                    <Route path="products">
-                        <Route
-                            index
-                            element={
-                                <ProtectedRoute>
-                                    <List />
-                                </ProtectedRoute>
-                            }
-                        ></Route>
-                        <Route
-                            path=":userId"
-                            element={
-                                <ProtectedRoute>
-                                    <Single />
-                                </ProtectedRoute>
-                            }
-                        ></Route>
-                        <Route
-                            path="new"
-                            element={
-                                <ProtectedRoute>
-                                    <New
-                                        inputs={productInputs}
-                                        title="Add new product"
-                                    />
-                                </ProtectedRoute>
-                            }
-                        ></Route>
+                        />
+                        <Route path="users">
+                            <Route
+                                index
+                                element={
+                                    <ProtectedRoute>
+                                        <List columns={userColumns} />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path=":userId"
+                                element={
+                                    <ProtectedRoute>
+                                        <Single />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path="new"
+                                element={
+                                    <ProtectedRoute>
+                                        <New
+                                            inputs={userInputs}
+                                            title="Add new user"
+                                        />
+                                    </ProtectedRoute>
+                                }
+                            />
+                        </Route>
+                        <Route path="products">
+                            <Route
+                                index
+                                element={
+                                    <ProtectedRoute>
+                                        <List columns={productColumns} />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path=":userId"
+                                element={
+                                    <ProtectedRoute>
+                                        <Single />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path="new"
+                                element={
+                                    <ProtectedRoute>
+                                        <New
+                                            inputs={productInputs}
+                                            title="Add new product"
+                                        />
+                                    </ProtectedRoute>
+                                }
+                            />
+                        </Route>
                     </Route>
                 </Routes>
             </BrowserRouter>
