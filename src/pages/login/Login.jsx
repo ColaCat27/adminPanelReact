@@ -23,8 +23,16 @@ const Login = () => {
         dispatch({ type: 'LOGIN_START' });
         try {
             const res = await axios.post('/auth/login', credentials);
-            dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.details });
-            navigate('/');
+
+            if (res.data.isAdmin) {
+                dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.details });
+                navigate('/');
+            } else {
+                dispatch({
+                    type: 'LOGIN_FAILURE',
+                    message: 'You are not allowed',
+                });
+            }
         } catch (err) {
             dispatch({ type: 'LOGIN_FAILURE', payload: err.response.data });
         }
@@ -50,6 +58,7 @@ const Login = () => {
                 <button
                     disabled={loading}
                     onClick={handleClick}
+                    onKeyPress={handleClick}
                     className="lButton"
                 >
                     Login
