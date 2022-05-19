@@ -58,6 +58,13 @@
               .itemValue {
                 font-weight: 300;
               }
+
+              .editValue {
+                border: none;
+                border-bottom: 1px solid #999;
+                font-weight: 300;
+                outline: none;
+              }
             }
           }
         }
