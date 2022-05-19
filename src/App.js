@@ -39,25 +39,60 @@ function App() {
                     ></Route>
 
                     <Route path="users">
-                        <Route index element={<List />}></Route>
-                        <Route path=":userId" element={<Single />}></Route>
+                        <Route
+                            index
+                            element={
+                                <ProtectedRoute>
+                                    <List />
+                                </ProtectedRoute>
+                            }
+                        ></Route>
+                        <Route
+                            path=":userId"
+                            element={
+                                <ProtectedRoute>
+                                    <Single />
+                                </ProtectedRoute>
+                            }
+                        ></Route>
                         <Route
                             path="new"
                             element={
-                                <New inputs={userInputs} title="Add new user" />
+                                <ProtectedRoute>
+                                    <New
+                                        inputs={userInputs}
+                                        title="Add new user"
+                                    />
+                                </ProtectedRoute>
                             }
                         ></Route>
                     </Route>
                     <Route path="products">
-                        <Route index element={<List />}></Route>
-                        <Route path=":userId" element={<Single />}></Route>
+                        <Route
+                            index
+                            element={
+                                <ProtectedRoute>
+                                    <List />
+                                </ProtectedRoute>
+                            }
+                        ></Route>
+                        <Route
+                            path=":userId"
+                            element={
+                                <ProtectedRoute>
+                                    <Single />
+                                </ProtectedRoute>
+                            }
+                        ></Route>
                         <Route
                             path="new"
                             element={
-                                <New
-                                    inputs={productInputs}
-                                    title="Add new product"
-                                />
+                                <ProtectedRoute>
+                                    <New
+                                        inputs={productInputs}
+                                        title="Add new product"
+                                    />
+                                </ProtectedRoute>
                             }
                         ></Route>
                     </Route>
