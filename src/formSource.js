@@ -1,77 +1,64 @@
 export const userInputs = [
     {
-      id: 1,
-      label: "Username",
-      type: "text",
-      placeholder: "john_doe",
+        id: 'username',
+        label: 'Username',
+        type: 'text',
+        placeholder: 'john_doe',
     },
     {
-      id: 2,
-      label: "Name and surname",
-      type: "text",
-      placeholder: "John Doe",
+        id: 'email',
+        label: 'Email',
+        type: 'email',
+        placeholder: 'john_doe@gmail.com',
     },
     {
-      id: 3,
-      label: "Email",
-      type: "mail",
-      placeholder: "john_doe@gmail.com",
+        id: 'phone',
+        label: 'Phone',
+        type: 'text',
+        placeholder: '+1 234 567 89',
     },
     {
-      id: 4,
-      label: "Phone",
-      type: "text",
-      placeholder: "+1 234 567 89",
+        id: 'password',
+        label: 'Password',
+        type: 'password',
     },
     {
-      id: 5,
-      label: "Password",
-      type: "password",
+        id: 'country',
+        label: 'Country',
+        type: 'text',
+        placeholder: 'Ukraine',
     },
     {
-      id: 6,
-      label: "Address",
-      type: "text",
-      placeholder: "Elton St. 216 NewYork",
+        id: 'city',
+        label: 'City',
+        type: 'text',
+        placeholder: 'Kyiv',
+    },
+];
+
+export const productInputs = [
+    {
+        id: 'title',
+        label: 'Title',
+        type: 'text',
+        placeholder: 'Apple Macbook Pro',
     },
     {
-      id: 7,
-      label: "Country",
-      type: "text",
-      placeholder: "USA",
-    },
-  ];
-  
-  export const productInputs = [
-    {
-      id: 1,
-      label: "Title",
-      type: "text",
-      placeholder: "Apple Macbook Pro",
+        id: 'desc',
+        label: 'Description',
+        type: 'text',
+        placeholder: 'Description',
     },
     {
-      id: 2,
-      label: "Description",
-      type: "text",
-      placeholder: "Description",
+        id: 'type',
+        label: 'Category',
+        type: 'text',
+        placeholder: 'Computers',
     },
     {
-      id: 3,
-      label: "Category",
-      type: "text",
-      placeholder: "Computers",
+        id: 'price',
+        label: 'Price',
+        type: 'text',
+        placeholder: '100',
     },
-    {
-      id: 4,
-      label: "Price",
-      type: "text",
-      placeholder: "100",
-    },
-    {
-      id: 5,
-      label: "Stock",
-      type: "text",
-      placeholder: "in stock",
-    },
-  ];
-  
+];

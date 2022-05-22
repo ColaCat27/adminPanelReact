@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import './new.scss';
+import './newProduct.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
@@ -11,12 +11,13 @@ const New = ({ inputs, title }) => {
 
     const handleChange = (e) => {
         setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+        console.log(info);
     };
 
     const handleClick = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('/auth/register', info);
+            await axios.post('/products/', info);
         } catch (err) {
             console.log(err);
         }

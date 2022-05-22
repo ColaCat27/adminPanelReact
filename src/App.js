@@ -4,6 +4,7 @@ import Login from './pages/login/Login';
 import List from './pages/list/List';
 import Single from './pages/single/Single';
 import New from './pages/new/New';
+import NewProduct from './pages/newProduct/NewProduct';
 import './style/dark.scss';
 import { useContext } from 'react';
 import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
@@ -88,7 +89,7 @@ function App() {
                                 path="new"
                                 element={
                                     <ProtectedRoute>
-                                        <New
+                                        <NewProduct
                                             inputs={productInputs}
                                             title="Add new product"
                                         />
