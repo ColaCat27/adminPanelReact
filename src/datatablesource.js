@@ -46,8 +46,8 @@ export const userColumns = [
 export const productColumns = [
     { field: '_id', headerName: 'ID', width: 250 },
     {
-        field: 'name',
-        headerName: 'Name',
+        field: 'title',
+        headerName: 'Title',
         width: 150,
     },
     {
@@ -56,13 +56,13 @@ export const productColumns = [
         width: 100,
     },
     {
-        field: 'title',
-        headerName: 'Title',
+        field: 'desc',
+        headerName: 'Description',
         width: 230,
     },
     {
-        field: 'city',
-        headerName: 'City',
+        field: 'price',
+        headerName: 'Price',
         width: 100,
     },
 ];
