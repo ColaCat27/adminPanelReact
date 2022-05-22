@@ -13,10 +13,6 @@ const Navbar = () => {
             <div className="wrapper">
                 <div className="items">
                     <div className="item">
-                        <LanguageIcon className="icon" />
-                        English
-                    </div>
-                    <div className="item">
                         <DarkModeOutlinedIcon
                             className="icon"
                             style={{ cursor: 'pointer' }}
@@ -25,16 +21,13 @@ const Navbar = () => {
                             }}
                         />
                     </div>
-                    <div className="item">
-                        <ListOutlinedIcon className="icon" />
-                    </div>
-                    <div className="item">
+                    {/* <div className="item">
                         <img
                             className="avatar"
-                            src="https://images.pexels.com/photos/1404821/pexels-photo-1404821.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            src="https://i.ibb.co/MBtjqXQ/no-avatar.gif"
                             alt="avatar"
                         />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

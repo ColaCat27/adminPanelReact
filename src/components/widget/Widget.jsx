@@ -54,7 +54,7 @@ const Widget = ({ type }) => {
             <div className="left">
                 <span className="title">{data.title}</span>
                 <span className="counter">{data.amount}</span>
-                <Link to={data.url} style={{ 'text-decoration': 'none' }}>
+                <Link to={data.url} style={{ textDecoration: 'none' }}>
                     <span className="link">{data.link}</span>
                 </Link>
             </div>
