@@ -3,6 +3,7 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import List from './pages/list/List';
 import Single from './pages/single/Single';
+import SingleProduct from './pages/singleProduct/SingleProduct';
 import New from './pages/new/New';
 import NewProduct from './pages/newProduct/NewProduct';
 import './style/dark.scss';
@@ -81,7 +82,7 @@ function App() {
                                 path=":userId"
                                 element={
                                     <ProtectedRoute>
-                                        <Single />
+                                        <SingleProduct />
                                     </ProtectedRoute>
                                 }
                             />
