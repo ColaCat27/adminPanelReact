@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './newProduct.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
@@ -6,6 +7,8 @@ import axios from 'axios';
 
 const NewProduct = ({ inputs, title }) => {
     const [info, setInfo] = useState({});
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -16,6 +19,7 @@ const NewProduct = ({ inputs, title }) => {
         e.preventDefault();
         try {
             await axios.post('/products/', info);
+            navigate('/products/');
         } catch (err) {
             console.log(err);
         }

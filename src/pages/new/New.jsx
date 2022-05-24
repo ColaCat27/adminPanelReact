@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './new.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
@@ -6,6 +7,8 @@ import axios from 'axios';
 
 const New = ({ inputs, title }) => {
     const [info, setInfo] = useState({});
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -15,6 +18,7 @@ const New = ({ inputs, title }) => {
         e.preventDefault();
         try {
             await axios.post('/auth/register', info);
+            navigate('/users/');
         } catch (err) {
             console.log(err);
         }
