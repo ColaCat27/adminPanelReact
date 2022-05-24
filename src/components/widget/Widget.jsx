@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import './widget.scss';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
@@ -6,14 +6,21 @@ import { Link } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
 const Widget = ({ type }) => {
-    let data;
+    const { data, loading, error } = useFetch(`/${type}s/getCount`);
+
+    if (loading) return <p>loading</p>;
+    if (error) return <p>error</p>;
+
+    if (!data) return <p>data not found</p>;
+
+    let details;
 
     switch (type) {
         case 'user':
-            data = {
+            details = {
                 title: 'USERS',
                 isMoney: false,
-                amount: 1,
+                amount: data.count,
                 link: 'See all users',
                 url: '/users/',
                 icon: (
@@ -28,10 +35,10 @@ const Widget = ({ type }) => {
             };
             break;
         case 'product':
-            data = {
+            details = {
                 title: 'PRODUCTS',
                 isMoney: false,
-                amount: 2,
+                amount: data.count,
                 link: 'View all products',
                 url: '/products/',
                 icon: (
@@ -52,13 +59,13 @@ const Widget = ({ type }) => {
     return (
         <div className="widget">
             <div className="left">
-                <span className="title">{data.title}</span>
-                <span className="counter">{data.amount}</span>
-                <Link to={data.url} style={{ textDecoration: 'none' }}>
-                    <span className="link">{data.link}</span>
+                <span className="title">{details.title}</span>
+                <span className="counter">{details.amount}</span>
+                <Link to={`${details.url}`} style={{ textDecoration: 'none' }}>
+                    <span className="link">{details.link}</span>
                 </Link>
             </div>
-            <div className="right">{data.icon}</div>
+            <div className="right">{details.icon}</div>
         </div>
     );
 };

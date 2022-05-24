@@ -14,7 +14,7 @@ const SingleProduct = () => {
     const location = useLocation();
     const path = location.pathname;
 
-    const { data, loading, error } = useFetch(`${path}`);
+    const { data, error } = useFetch(`${path}`);
 
     useEffect(() => {
         setInfo(data);

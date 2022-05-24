@@ -1,8 +1,6 @@
 import { React, useContext } from 'react';
 import './navbar.scss';
-import LanguageIcon from '@mui/icons-material/Language';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import { DarkModeContext } from '../../context/darkModeContext';
 
 const Navbar = () => {
